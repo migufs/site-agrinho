@@ -1,1 +1,81 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  background: #2e7d32;
+  color: white;
+  padding: 10px;
+}
+
+nav ul {
+  display: flex;
+  list-style: none;
+}
+
+nav ul li {
+  margin: 0 10px;
+}
+
+.banner {
+  height: 80vh;
+  background: url('https://images.unsplash.com/photo-1500382017468-9049fed747ef') center/cover;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+}
+
+.cards {
+  display: flex;
+  gap: 10px;
+}
+
+.card {
+  background: #a5d6a7;
+  padding: 20px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 10px;
+}
+
+img {
+  width: 100%;
+}
+
+@media (max-width: 768px) {
+  nav ul {
+    display: none;
+    flex-direction: column;
+  }
+}
+
+// script.js
+const toggle = document.getElementById('menu-toggle');
+const nav = document.querySelector('nav ul');
+
+// Menu mobile
+toggle.addEventListener('click', () => {
+  nav.style.display = nav.style.display === 'flex' ? 'none' : 'flex';
+});
+
+// Validação do formulário
+document.getElementById('form').addEventListener('submit', function(e) {
+  e.preventDefault();
+  const nome = document.getElementById('nome').value;
+  const email = document.getElementById('email').value;
+  const mensagem = document.getElementById('mensagem').value;
+
+  if(nome === '' || email === '' || mensagem === '') {
+    alert('Preencha todos os campos!');
+  } else {
+    alert('Mensagem enviada com sucesso!');
+  }
+});
 
